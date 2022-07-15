@@ -10,6 +10,12 @@ const handleTest = () => {
 </script>
 
 <template>
+  <div data-wails-drag>
+    拖动
+  </div>
+  <div data-wails-no-drag>
+    拖不动
+  </div>
   <img id="logo" alt="Wails logo" src="./assets/images/logo-universal.png"/>
   <button @click="handleTest">点击测试</button>
   <HelloWorld/>

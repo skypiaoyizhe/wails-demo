@@ -2,6 +2,7 @@ package main
 
 import (
 	"embed"
+	"github.com/wailsapp/wails/v2/pkg/options/windows"
 
 	"github.com/wailsapp/wails/v2"
 	"github.com/wailsapp/wails/v2/pkg/options"
@@ -16,14 +17,31 @@ func main() {
 
 	// Create application with options
 	err := wails.Run(&options.App{
-		Title:            "myproject",
-		Width:            1024,
-		Height:           768,
+		Title:            "test",
+		MinWidth:         1024,
+		MinHeight:        768,
+		Frameless:        true,
 		Assets:           assets,
-		BackgroundColour: &options.RGBA{R: 27, G: 38, B: 54, A: 0},
+		BackgroundColour: &options.RGBA{R: 0, G: 0, B: 0, A: 0},
 		OnStartup:        app.startup,
 		Bind: []interface{}{
 			app,
+		},
+		Windows: &windows.Options{
+			WebviewIsTransparent:              true,
+			WindowIsTranslucent:               true,
+			DisableWindowIcon:                 false,
+			DisableFramelessWindowDecorations: false,
+			WebviewUserDataPath:               "",
+			Theme:                             windows.SystemDefault,
+			CustomTheme: &windows.ThemeSettings{
+				DarkModeTitleBar:   windows.RGB(20, 20, 20),
+				DarkModeTitleText:  windows.RGB(200, 200, 200),
+				DarkModeBorder:     windows.RGB(20, 0, 20),
+				LightModeTitleBar:  windows.RGB(200, 200, 200),
+				LightModeTitleText: windows.RGB(20, 20, 20),
+				LightModeBorder:    windows.RGB(200, 200, 200),
+			},
 		},
 	})
 
