@@ -7,6 +7,9 @@ const handleTest = () => {
     console.log("结果",res)
   })
 }
+const handleQuit = () => {
+  window.runtime.Quit();
+}
 </script>
 
 <template>
@@ -16,6 +19,7 @@ const handleTest = () => {
   <div data-wails-no-drag>
     拖不动
   </div>
+  <button @click="handleQuit">关闭</button>
   <img id="logo" alt="Wails logo" src="./assets/images/logo-universal.png"/>
   <button @click="handleTest">点击测试</button>
   <HelloWorld/>

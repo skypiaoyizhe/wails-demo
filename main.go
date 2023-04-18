@@ -14,10 +14,9 @@ var assets embed.FS
 func main() {
 	// Create an instance of the app structure
 	app := NewApp()
-
 	// Create application with options
 	err := wails.Run(&options.App{
-		Title:            "test",
+		Title:            "高大上的半透明冰霜",
 		MinWidth:         1024,
 		MinHeight:        768,
 		Frameless:        true,
@@ -28,8 +27,8 @@ func main() {
 			app,
 		},
 		Windows: &windows.Options{
-			WebviewIsTransparent:              true,
-			WindowIsTranslucent:               true,
+			WebviewIsTransparent:              true,// 网页透明
+			WindowIsTranslucent:               true,// 窗口透明
 			DisableWindowIcon:                 false,
 			DisableFramelessWindowDecorations: false,
 			WebviewUserDataPath:               "",
@@ -44,6 +43,7 @@ func main() {
 			},
 		},
 	})
+
 
 	if err != nil {
 		println("Error:", err)
